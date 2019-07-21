@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>decathloncalculator</title>
+    <style>
+        html {
+            height: 100%;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background: linear-gradient(140deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(155,145,196,1) 100%);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        body {
+            padding-top: 80px;
+            font-family: monaco, monospace;
+        }
+        h1 {
+            display: inline-block;
+            background: #fff;
+            font-size: 30px
+        }
+        h2 {
+            font-size: 30px;
+        }
+        span {
+            background: #65d9;
+        }
+            .inputdiv {
+            margin-bottom: 8px;
+        }
+        input {
+            margin-left: 20px;
+            padding: 2px;
+        }
+        label {
+            display: inline-block;
+            width: 159px;
+            text-align: left;
+            font-weight: 600;
+        }​
+    </style>
+</head>
+
+<body>
+    <h1><span>:-</span>Decathlon Calculator<span>-:</span></h1><br>
+
+    <form action="#" th:action="@{/decathloncalculator}" th:object="${scoreSet}" method="POST">
+        <div class="inputdiv">
+            <label>100m (s):</label>
+            <input type="text" th:field="*{hundredMeters}"/>
+        </div>
+        <div class="inputdiv">
+            <label>Long Jump (cm):</label>
+            <input type="text" th:field="*{longJump}"/>
+        </div>
+        <div class="inputdiv">
+            <label>Shot Put (m):</label>
+            <input type="text" th:field="*{shotPut}"/>
+        </div>
+        <div class="inputdiv">
+            <label>High Jump (cm):</label>
+            <input type="text" th:field="*{highJump}"/>
+        </div>
+        <div class="inputdiv">
+            <label>400m (s):</label>
+            <input type="text" th:field="*{fourHundredMeters}"/>
+        </div>
+        <div class="inputdiv">
+            <label>110m Hurdles (s):</label>
+            <input type="text" th:field="*{hurdles}"/>
+        </div>
+        <div class="inputdiv">
+            <label>Discus Throw (m):</label>
+            <input type="text" th:field="*{discusThrow}"/>
+        </div>
+        <div class="inputdiv">
+            <label>Pole Vault (cm):</label>
+            <input type="text" th:field="*{poleVault}"/>
+        </div>
+        <div class="inputdiv">
+            <label>Javelin Throw (m):</label>
+            <input type="text" th:field="*{javelinThrow}"/>
+        </div>
+        <div class="inputdiv">
+            <label>1500m (s):</label>
+            <input type="text" th:field="*{fifteenHundredMeters}"/>
+        </div>
+        <button name="calculate" type="submit" style="padding: 16px;">Calculate</button>
+    </form>
+    <br>
+    <h2 style="float: left; margin-right: 10px;">
+        RESULT:
+    </h2>
+    <h2 id="score" th:text="${result}"></h2>
+
+</body>
+</html>
